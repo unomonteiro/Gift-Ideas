@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+// def GOOGLE_PLUS_API_DEBUG = '"' + recomendationsGooglePlusApiKeyDebug + '"' ?: '"Define Google Plus API key"';
+def GOOGLE_PLUS_API = '"' + recomendationsGooglePlusApiKeyDebug + '"' ?: '"Define Google Plus API key"';
+// def GOOGLE_PLUS_API_RELEASE = '"' + recomendationsGooglePlusApiKeyRelease + '"' ?: '"Define Google Plus API key"';
+def ETSY_API_KEY = '"' + recomendationsEtsyApiKey + '"' ?: '"Define Google Maps API key"';
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "io.monteirodev.giftideas"
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        all {
+            buildConfigField 'String', 'ETSY_API_KEY ', ETSY_API_KEY
+            buildConfigField 'String', 'GOOGLE_PLUS_API ', GOOGLE_PLUS_API
+        }
+        debug {
+            // buildConfigField 'String', 'GOOGLE_PLUS_API_DEBUG ', GOOGLE_PLUS_API_DEBUG
+        }
+        release {
+            // buildConfigField 'String', 'GOOGLE_PLUS_API_RELEASE ', GOOGLE_PLUS_API_RELEASE
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:22.0.0'
+    compile 'com.google.android.gms:play-services-plus:7.3.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.android.support:recyclerview-v7:22.0.0'
+}
