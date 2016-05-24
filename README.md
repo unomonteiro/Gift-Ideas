@@ -1,4 +1,4 @@
-# Gift-Ideas
+# [Gift Ideas](https://github.com/unomonteiro/Gift-Ideas)
 Getting store items from Etsy API and sharing with Google+ API 
 
 ![phone 1](https://cloud.githubusercontent.com/assets/7604348/15521850/10da3548-2206-11e6-88f1-9e51a0355fed.png)
